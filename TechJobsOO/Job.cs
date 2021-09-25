@@ -77,7 +77,7 @@ namespace TechJobsOO
             if (JobCoreCompetency == null)
             {
                 JobCoreCompetencyText = noData;
-            } else { JobCoreCompetencyText = JobCoreCompetency.value; }
+            } else { JobCoreCompetencyText = JobCoreCompetency.Value; }
 
             string str = Environment.NewLine +
                          "ID: " + Id +

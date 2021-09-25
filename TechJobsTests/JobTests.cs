@@ -23,7 +23,7 @@ namespace TechJobsTests
             Assert.IsTrue(job3.EmployerName.Value == "ACME");
             Assert.IsTrue(job3.EmployerLocation.Value == "Desert");
             Assert.IsTrue(job3.JobType.Value == "Quality control");
-            Assert.IsTrue(job3.JobCoreCompetency.value == "Persistence");
+            Assert.IsTrue(job3.JobCoreCompetency.Value == "Persistence");
         }
 
         [TestMethod]
