@@ -40,6 +40,61 @@ namespace TechJobsOO
             return HashCode.Combine(Id);
         }
 
+        public override string ToString()
+        {
+            string NameText;
+            string EmployerNameText;
+            string EmployerLocationText;
+            string JobTypeText;
+            string JobCoreCompetencyText;
+            string noData = "Data not available";
+
+            if (Name == null && EmployerName == null && EmployerLocation == null && JobType == null && JobCoreCompetency == null)
+            {
+                return "OOPS! This job does not seem to exist.";
+            }
+
+            if (Name == null)
+            {
+                NameText = noData;
+            } else { NameText = Name; }
+
+            if (EmployerName == null)
+            {
+                EmployerNameText = noData;
+            } else { EmployerNameText = EmployerName.Value; }
+
+            if (EmployerLocation == null)
+            {
+                EmployerLocationText = noData;
+            } else { EmployerLocationText = EmployerLocation.Value; }
+
+            if (JobType == null)
+            {
+                JobTypeText = noData;
+            } else { JobTypeText = JobType.Value; }
+
+            if (JobCoreCompetency == null)
+            {
+                JobCoreCompetencyText = noData;
+            } else { JobCoreCompetencyText = JobCoreCompetency.value; }
+
+            string str = Environment.NewLine +
+                         "ID: " + Id +
+                         Environment.NewLine +
+                         "Name: " + NameText +
+                         Environment.NewLine +
+                         "Employer: " + EmployerNameText + 
+                         Environment.NewLine +
+                         "Location: " + EmployerLocationText +
+                         Environment.NewLine +
+                         "Position Type: " + JobTypeText +
+                         Environment.NewLine +
+                         "Core Competency: " + JobCoreCompetencyText +
+                         Environment.NewLine;
+            return str;
+        }
+
         // TODO: Generate Equals() and GetHashCode() methods.
     }
 }
