@@ -3,6 +3,10 @@ namespace TechJobsOO
 {
     public class CoreCompetency : JobField
     {
+        public CoreCompetency()
+        {
+        }
+
         public CoreCompetency(string value) : base(value)
         { 
         }

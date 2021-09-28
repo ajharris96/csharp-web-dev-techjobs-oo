@@ -7,7 +7,7 @@ namespace TechJobsOO
         private static int nextId = 1;
 
         public string Name { get; set; }
-        public Employer EmployerName { get; set; }
+        public Employer EmployerName { get; set; } 
         public Location EmployerLocation { get; set; }
         public PositionType JobType { get; set; }
         public CoreCompetency JobCoreCompetency { get; set; }
@@ -16,8 +16,13 @@ namespace TechJobsOO
 
         public Job()
         {
+            EmployerName = new Employer();
+            EmployerLocation = new Location();
+            JobType = new PositionType();
+            JobCoreCompetency = new CoreCompetency();
             Id = nextId;
             nextId++;
+
         }
 
         public Job(string name, Employer employer, Location location, PositionType position, CoreCompetency coreCompetency) : this()
@@ -42,56 +47,16 @@ namespace TechJobsOO
 
         public override string ToString()
         {
-            string NameText;
-            string EmployerNameText;
-            string EmployerLocationText;
-            string JobTypeText;
-            string JobCoreCompetencyText;
-            string noData = "Data not available";
+            
 
-            if (Name == null && EmployerName == null && EmployerLocation == null && JobType == null && JobCoreCompetency == null)
+            if (Name == null && EmployerName.Value == null && EmployerLocation.Value == null && JobType.Value == null && JobCoreCompetency.Value == null)
             {
                 return "OOPS! This job does not seem to exist.";
             }
 
-            if (Name == null)
-            {
-                NameText = noData;
-            } else { NameText = Name; }
+            string str = string.Format("\nID: {0}\nName: {1}\nEmployer: {2}\nLocation: {3}\nPosition Type: {4}\nCore Competency: {5}\n", Id, Name, EmployerName, EmployerLocation, JobType, JobCoreCompetency);
 
-            if (EmployerName == null)
-            {
-                EmployerNameText = noData;
-            } else { EmployerNameText = EmployerName.Value; }
-
-            if (EmployerLocation == null)
-            {
-                EmployerLocationText = noData;
-            } else { EmployerLocationText = EmployerLocation.Value; }
-
-            if (JobType == null)
-            {
-                JobTypeText = noData;
-            } else { JobTypeText = JobType.Value; }
-
-            if (JobCoreCompetency == null)
-            {
-                JobCoreCompetencyText = noData;
-            } else { JobCoreCompetencyText = JobCoreCompetency.Value; }
-
-            string str = Environment.NewLine +
-                         "ID: " + Id +
-                         Environment.NewLine +
-                         "Name: " + NameText +
-                         Environment.NewLine +
-                         "Employer: " + EmployerNameText + 
-                         Environment.NewLine +
-                         "Location: " + EmployerLocationText +
-                         Environment.NewLine +
-                         "Position Type: " + JobTypeText +
-                         Environment.NewLine +
-                         "Core Competency: " + JobCoreCompetencyText +
-                         Environment.NewLine;
+          
             return str;
         }
 
