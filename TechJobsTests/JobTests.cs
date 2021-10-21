@@ -50,12 +50,12 @@ namespace TechJobsTests
             Job job3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
             string str = job3.ToString();
             String[] lines = str.Split(new String[] { Environment.NewLine }, StringSplitOptions.None);
-            Assert.IsTrue(lines[1].Contains("ID:"));
-            Assert.IsTrue(lines[2].Contains("Name:"));
-            Assert.IsTrue(lines[3].Contains("Employer:"));
-            Assert.IsTrue(lines[4].Contains("Location:"));
-            Assert.IsTrue(lines[5].Contains("Position Type:"));
-            Assert.IsTrue(lines[6].Contains("Core Competency:"));
+            Assert.IsTrue(lines[1].Substring(0,3) =="ID:");
+            Assert.IsTrue(lines[2].Substring(0, 5) =="Name:");
+            Assert.IsTrue(lines[3].Substring(0,9)=="Employer:");
+            Assert.IsTrue(lines[4].Substring(0,9)=="Location:");
+            Assert.IsTrue(lines[5].Substring(0,14)=="Position Type:");
+            Assert.IsTrue(lines[6].Substring(0,16)=="Core Competency:");
         }
 
         [TestMethod]
